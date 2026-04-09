@@ -1,134 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hafiz Ajmi Aulia | Professional Web Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; opacity: 0; animation: fadeIn 1.5s forwards; }
-        @keyframes fadeIn { to { opacity: 1; } }
-        .nav-link { position: relative; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background-color: #111; transition: width 0.3s; }
-        .nav-link:hover::after { width: 100%; }
-        .project-card { transition: transform 0.5s ease, box-shadow 0.5s ease; }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Hafiz Ajmi Aulia</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<script>
+tailwind.config = {
+darkMode: 'class'
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+body{
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+.nav-link{
+position:relative;
+}
+
+.nav-link::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-4px;
+width:0;
+height:1px;
+background:currentColor;
+transition:.3s;
+}
+
+.nav-link:hover::after{
+width:100%;
+}
+
+.hero-name span{
+display:inline-block;
+opacity:0;
+transform:translateY(30px);
+animation:fadeUp 1s forwards;
+}
+
+.hero-name span:nth-child(1){
+animation-delay:.2s;
+}
+
+.hero-name span:nth-child(2){
+animation-delay:.5s;
+}
+
+.hero-name span:nth-child(3){
+animation-delay:.8s;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.project-card{
+transition:.4s;
+}
+
+.project-card:hover{
+transform:translateY(-10px);
+box-shadow:0 25px 50px rgba(0,0,0,.12);
+}
+
+.lanyard{
+position:fixed;
+top:0;
+right:20px;
+z-index:100;
+transform-origin:top center;
+animation:swing 3s ease-in-out infinite;
+pointer-events:none;
+}
+
+@keyframes swing{
+0%{transform:rotate(3deg);}
+50%{transform:rotate(-3deg);}
+100%{transform:rotate(3deg);}
+}
+
+.lanyard-string{
+width:2px;
+height:90px;
+background:#999;
+margin:auto;
+}
+
+.lanyard-card{
+width:110px;
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+transition:transform .15s ease;
+}
+
+.lanyard-card img{
+width:100%;
+height:120px;
+object-fit:cover;
+}
+</style>
+
 </head>
-<body class="bg-[#ffffff] text-[#111111] antialiased">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-50">
-        <div class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
-            <span class="text-xl font-extrabold tracking-tighter">H.A.A</span>
-            <div class="hidden md:flex space-x-12 text-[10px] uppercase tracking-[0.3em] font-medium text-gray-600">
-                <a href="#work" class="nav-link text-black">Selected Work</a>
-                <a href="#services" class="nav-link text-black">Expertise</a>
-                <a href="#contact" class="nav-link text-black font-semibold">Contact</a>
-            </div>
-        </div>
-    </nav>
+<body class="bg-white text-black dark:bg-black dark:text-white transition duration-500">
 
-    <section class="min-h-screen flex flex-col justify-center px-8">
-        <div class="max-w-6xl mx-auto w-full">
-            <p class="text-[11px] uppercase tracking-[0.5em] mb-6 text-gray-400 font-semibold italic">Web Solutions Architect</p>
-            <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter leading-[0.85] mb-12">
-                Hafiz Ajmi <br> <span class="text-gray-200 font-extralight italic">Aulia.</span>
-            </h1>
-            <div class="h-[1px] w-24 bg-gray-900 mb-12"></div>
-            <p class="max-w-xl text-gray-600 text-xl leading-relaxed font-light">
-                Providing high-end <span class="text-black font-normal">Web Development</span> services. Transforming complex ideas into elegant, high-performance digital experiences.
-            </p>
-        </div>
-    </section>
+<div class="lanyard" id="lanyard">
+<div class="lanyard-string"></div>
+<div class="lanyard-card" id="lanyardCard">
+<img src="foto-saya.png" alt="foto">
+<div class="p-2 text-center text-xs font-bold">
+Hafiz Ajmi
+</div>
+</div>
+</div>
 
-    <section id="services" class="py-32 bg-[#fafafa] px-8 border-t border-b border-gray-100">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-[10px] uppercase tracking-[0.5em] text-gray-400 mb-20 font-bold">Services</h2>
-            <div class="grid md:grid-cols-3 gap-16">
-                <div class="border-l border-gray-200 pl-8">
-                    <h3 class="text-lg font-bold mb-4 tracking-tight italic">E-Commerce</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Developing secure and scalable online stores that focus on seamless shopping journeys and conversion.</p>
-                </div>
-                <div class="border-l border-gray-200 pl-8">
-                    <h3 class="text-lg font-bold mb-4 tracking-tight italic">Corporate Sites</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Establishing digital authority with clean, professional websites tailored for executive business needs.</p>
-                </div>
-                <div class="border-l border-gray-200 pl-8">
-                    <h3 class="text-lg font-bold mb-4 tracking-tight italic">Web Applications</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Building custom-coded tools and dashboards to streamline your business workflow and data management.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<nav class="fixed w-full bg-white/90 dark:bg-black/90 backdrop-blur-md z-[200] border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-8 pr-40 py-5 flex justify-between items-center">
+<h1 class="font-bold text-xl">H.A.A</h1>
 
-    <section id="work" class="py-40 px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-24">
-                
-                <div class="group project-card bg-white rounded-3xl p-4">
-                    <div class="overflow-hidden rounded-2xl bg-gray-100 aspect-video mb-8">
-                        <img src="gambar1.png" 
-                             alt="E-commerce Project" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
-                    </div>
-                    <div class="px-2">
-                        <h4 class="text-2xl font-bold tracking-tight italic">Elite Commerce</h4>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-2 font-bold">E-Commerce Development / 2026</p>
-                    </div>
-                </div>
+<div class="flex items-center gap-10">
+<div class="hidden md:flex gap-10 text-sm">
+<a href="#work" class="nav-link">Selected Work</a>
+<a href="#services" class="nav-link">Expertise</a>
+<a href="#contact" class="nav-link">Contact</a>
+</div>
 
-                <div class="group project-card bg-white rounded-3xl p-4 md:mt-32">
-                    <div class="overflow-hidden rounded-2xl bg-gray-100 aspect-video mb-8">
-                        <img src="gambar2.png" 
-                             alt="Web App Project" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
-                    </div>
-                    <div class="px-2">
-                        <h4 class="text-2xl font-bold tracking-tight italic">Design System Pro</h4>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-2 font-bold">Web Application / UI Design</p>
-                    </div>
-                </div>
+<div class="flex gap-5 border-l pl-6 border-gray-300 dark:border-gray-700">
+<a href="https://instagram.com/hfzajmi" target="_blank" class="hover:text-gray-500 transition text-lg">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="mailto:hafizajmi236@gmail.com" class="hover:text-gray-500 transition text-lg">
+<i class="far fa-envelope"></i>
+</a>
+</div>
+</div>
+</div>
+</nav>
 
-                <div class="group project-card bg-white rounded-3xl p-4">
-                    <div class="overflow-hidden rounded-2xl bg-gray-100 aspect-video mb-8">
-                        <img src="gambar3.png" 
-                             alt="Corporate Project" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
-                    </div>
-                    <div class="px-2">
-                        <h4 class="text-2xl font-bold tracking-tight italic">Corporate Identity</h4>
-                        <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 mt-2 font-bold">Business Profile / Web Presence</p>
-                    </div>
-                </div>
+<section class="min-h-screen flex items-center justify-center px-8 text-center">
+<div class="max-w-5xl">
 
-            </div>
-        </div>
-    </section>
+<p class="uppercase tracking-[0.4em] text-sm text-gray-400 mb-6">
+Web Developer
+</p>
 
-    <section id="contact" class="py-48 px-8 bg-[#111111] text-white">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-[10px] uppercase tracking-[0.6em] text-gray-500 mb-16 font-bold">Inquiries</h2>
-            
-            <div class="mb-12">
-                <p class="text-gray-400 text-sm mb-4 uppercase tracking-widest">Send an email</p>
-                <a href="mailto:hafizajmi@example.com" class="text-3xl md:text-6xl font-extralight tracking-tighter hover:text-gray-400 transition duration-300 underline underline-offset-[12px] decoration-1 decoration-gray-700">
-                    hafizajmi236@gmail.com
-                </a>
-            </div>
+<h1 class="hero-name text-6xl md:text-8xl font-extrabold leading-tight">
+<span>Hafiz</span>
+<span>Ajmi</span>
+<span>Aulia</span>
+</h1>
 
-            <div class="mt-24 flex flex-col md:flex-row justify-center items-center gap-12 text-[10px] uppercase tracking-[0.4em] font-bold text-gray-400">
-                <a href="https://www.instagram.com/hfzajmi?igsh=Znd1dHQ4bGdudmY5" target="_blank" class="hover:text-white transition">Instagram</a>
-                <span class="hidden md:block text-gray-800">/</span>
-                <a href="#" class="hover:text-white transition">LinkedIn</a>
-                <span class="hidden md:block text-gray-800">/</span>
-                <p class="text-gray-600 font-normal">Based in Indonesia</p>
-            </div>
-        </div>
-    </section>
+<h2 class="mt-6 text-2xl md:text-3xl font-light text-gray-800 dark:text-gray-200">
+Building clean digital experiences for modern brands and businesses.
+</h2>
 
-    <footer class="py-12 bg-[#111111] text-center border-t border-white/5">
-        <p class="text-[9px] uppercase tracking-[0.8em] text-gray-600">
-            &copy; 2026 Hafiz Ajmi Aulia — All Rights Reserved
-        </p>
-    </footer>
+<p class="mt-6 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+Focused on performance, elegant design, and solutions that help businesses grow online.
+</p>
+
+<p class="mt-4 text-sm uppercase tracking-[0.3em] text-gray-400">
+Available for freelance projects
+</p>
+
+<div class="mt-8 flex flex-col items-center gap-6">
+<div class="flex justify-center gap-4 flex-wrap">
+<a href="#contact" class="px-8 py-3 bg-black text-white dark:bg-white dark:text-black rounded-full text-sm font-medium hover:scale-105 transition">
+Hire Me
+</a>
+
+<a href="cv.pdf" download class="px-8 py-3 border border-black dark:border-white rounded-full text-sm font-medium hover:scale-105 transition">
+Download CV
+</a>
+</div>
+
+<div class="flex gap-8 mt-2">
+<a href="https://instagram.com/hfzajmi" target="_blank" class="flex items-center gap-2 text-sm font-semibold hover:opacity-70 transition">
+<i class="fab fa-instagram text-xl"></i> Instagram
+</a>
+<a href="mailto:hafizajmi236@gmail.com" class="flex items-center gap-2 text-sm font-semibold hover:opacity-70 transition">
+<i class="far fa-envelope text-xl"></i> Email
+</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="services" class="py-24 px-8 bg-gray-50 dark:bg-[#111]">
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+
+<div>
+<h3 class="font-bold text-xl mb-3">E-Commerce</h3>
+<p class="text-gray-500 dark:text-gray-400">
+Building online stores with modern responsive systems.
+</p>
+</div>
+
+<div>
+<h3 class="font-bold text-xl mb-3">Corporate Website</h3>
+<p class="text-gray-500 dark:text-gray-400">
+Professional company websites for branding and trust.
+</p>
+</div>
+
+<div>
+<h3 class="font-bold text-xl mb-3">Web App</h3>
+<p class="text-gray-500 dark:text-gray-400">
+Custom systems and interactive applications.
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="work" class="py-24 px-8">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+
+<div class="project-card bg-white dark:bg-[#111] rounded-2xl p-4">
+<img src="gambar1.png" class="rounded-xl mb-4">
+<h3 class="font-bold text-xl">Project One</h3>
+</div>
+
+<div class="project-card bg-white dark:bg-[#111] rounded-2xl p-4">
+<img src="gambar2.png" class="rounded-xl mb-4">
+<h3 class="font-bold text-xl">Project Two</h3>
+</div>
+
+<div class="project-card bg-white dark:bg-[#111] rounded-2xl p-4 md:col-span-2 max-w-2xl mx-auto">
+<img src="gambar3.png" class="rounded-xl mb-4">
+<h3 class="font-bold text-xl">Project Three</h3>
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="py-24 px-8 bg-black text-white text-center">
+<h2 class="text-4xl font-light mb-6">hafizajmi236@gmail.com</h2>
+<p class="text-gray-400">Based in Indonesia</p>
+</section>
+
+<button id="themeToggle" class="fixed bottom-5 right-5 px-4 py-2 bg-black text-white dark:bg-white dark:text-black rounded-full shadow-lg">
+Mode
+</button>
+
+<script>
+const toggle=document.getElementById('themeToggle');
+
+if(localStorage.theme==='dark'){
+document.documentElement.classList.add('dark');
+}
+
+toggle.addEventListener('click',()=>{
+document.documentElement.classList.toggle('dark');
+
+if(document.documentElement.classList.contains('dark')){
+localStorage.theme='dark';
+}else{
+localStorage.theme='light';
+}
+});
+
+const lanyard=document.getElementById('lanyard');
+const card=document.getElementById('lanyardCard');
+
+document.addEventListener('mousemove',(e)=>{
+const x=(window.innerWidth/2-e.clientX)/40;
+const y=(window.innerHeight/2-e.clientY)/40;
+
+lanyard.style.transform=`rotate(${x}deg)`;
+card.style.transform=`rotateY(${-x}deg) rotateX(${y}deg)`;
+});
+</script>
 
 </body>
 </html>
