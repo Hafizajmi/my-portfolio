@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project One | Hafiz Ajmi Aulia</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+tailwind.config = { darkMode: 'class' }
+if(localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-black dark:bg-[#0a0a0a] dark:text-white transition-colors duration-500 min-h-screen">
+  <nav class="p-8"><a href="index.html" class="flex items-center gap-2 font-bold hover:opacity-60 transition text-sm uppercase tracking-widest"><i class="fas fa-arrow-left"></i> Back</a></nav>
+  <main class="max-w-4xl mx-auto px-8 py-12">
+    <header class="mb-12">
+      <p class="text-blue-600 font-bold text-xs uppercase tracking-widest mb-4">Case Study #01</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6">E-Commerce Hub</h1>
+      <p class="text-gray-500">Membangun ekosistem belanja digital yang cepat dan responsif.</p>
+    </header>
+    <img src="gambar1.png" class="w-full rounded-3xl mb-16 shadow-2xl">
+    <div class="grid md:grid-cols-3 gap-12 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      <div class="font-bold text-black dark:text-white uppercase tracking-widest">Tech: HTML, Tailwind, JS</div>
+      <div class="md:col-span-2">
+        <h3 class="text-xl font-bold text-black dark:text-white mb-4 italic">Overview</h3>
+        <p>Proyek ini fokus pada optimasi pengalaman belanja pengguna melalui perangkat mobile, memastikan transaksi selesai dalam kurang dari 3 klik.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
